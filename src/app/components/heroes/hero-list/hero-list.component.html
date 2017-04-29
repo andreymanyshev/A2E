@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </span>
+            <input type="text" class="form-control" #search (keyup)="0" aria-label="">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" (click)='addHero($event)'>
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <app-hero
+                *ngFor="let hero of heroes"
+                [hero]="hero"
+                (select)="onSelectHero($event)"
+                (remove)="onRemoveHero($event)"
+                (edit)="onEditHero($event)">
+            </app-hero>
+        </ul>
+    </div>
+    <!--<div class="panel-body">
+        <ul class="list-group">
+            <app-hero
+                *ngFor="let hero of heroes | heroFilter: search.value"
+                [hero]="hero"
+                (select)="onSelectHero($event)"
+                (remove)="onRemoveHero($event)"
+                (edit)="onEditHero($event)">
+            </app-hero>
+        </ul>
+    </div>-->
+</div>

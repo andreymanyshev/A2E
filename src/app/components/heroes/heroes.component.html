@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-lg-5">
+    <app-hero-list
+      [heroes]="heroes"
+      (select)="onSelectHero($event)"
+      (remove)="onRemoveHero($event)"
+      (edit)="onEditHero($event)"
+      (add)="onAddHero($event)">
+    </app-hero-list>
+  </div>
+  <div class="col-lg-7">
+    <app-hero-form
+      [hero]="selectedHero"
+      [editHero]="editHero"
+      (updateHero)="onUpdateHero($event)">
+    </app-hero-form>
+  </div>
+</div>
+
